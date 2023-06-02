@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+    background: #183553;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header{
+    position: relative;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.errors{
+    color: #f00;
+}
+.cronometro{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.7rem;
+}
+.main{
+    display: none;
+    width: 500px;
+    height: 500px;
+    background: black;
+}
+.contain-game{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(9,1fr);
+}
+.contain-game .square{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.6em;
+    font-weight: 900;
+    cursor: pointer;
+    color: #183553;
+    background: #eee;
+}
+.numbers{
+    display: flex;
+    margin-top: 10px;
+    background: black;
+    width: 100%;
+    height: 80px;
+}
+.numbers div{
+    cursor: pointer;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: calc(600px / 9);
+    height: 100%;
+}
+
+/* .R1{background: rgb(255, 255, 255);}
+.R2{background: rgb(200, 200, 200);}
+.R3{background: rgb(255, 250, 232);}
+.R4{background: rgb(255, 248, 236);}
+.R5{background: rgb(243, 229, 229);}
+.R6{background: rgb(200, 200, 200);}
+.R7{background: rgb(229, 229, 229);}
+.R8{background: rgb(188, 188, 188);}
+.R9{background: rgb(155, 155, 165);} */
+
+.contain-game .colorFilaColumna,.contain-game .colorRegion{
+    background: #d2eaf7;
+}
+.contain-game .colorNumRepetido{
+    background: #aac9fb;
+}
+
+.messageLoser{
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(#00f,#0ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+    color: #e5e5e5;
+}
+.messageLoser div{
+    width: 90%;
+    text-align: start;
+    font-size: 1.8em;
+}
+.messageLoser button{
+    cursor: pointer;
+    width: 50%;
+    height: 40px;
+    font-size: 1.1em;
+    background: #ededed;
+    transition: background,border-radius .5s;
+}
+.messageLoser button:hover{
+    background: #a5a5a5;
+    border-radius: 15px;
+}
+
+
+@media screen and (max-width : 600px) {
+    .header{
+        width: 400px;
+    }
+    .main{
+        width: 400px;
+        height: 400px;
+    }
+    .contain-game .square{
+        font-size: 2em;
+    }
+    .numbers div{
+        font-size: 2.5em;
+    }
+}
+@media screen and (max-width : 480px) {
+    .header{
+        width: 300px;
+    }
+    .main{
+        width: 300px;
+        height: 300px;
+    }
+    .contain-game .square{
+        font-size: 1.5em;
+    }
+    .numbers{
+        height: 50px;
+    }
+    .numbers div{font-size: 2em;}
+}
+@media screen and (max-width : 280px) {
+    .header{
+        width: 250px;
+    }
+    .cronometro{
+        font-size: 1.4em;
+    }
+    .main{
+        width: 250px;
+        height: 250px;
+    }
+    .contain-game .square{
+        font-size: 1em;
+    }
+}
