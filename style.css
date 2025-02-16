@@ -12,24 +12,35 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 .header{
     position: relative;
-    width: 500px;
-    height: 100px;
+    width: 100%;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.header h1{
+    font-size: 5rem;
+    font-family: cursive;
+}
 .errors{
     color: #f00;
 }
+.errors::before{
+    content: "Intentos Fallidos ";
+}
+
 .cronometro{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     font-size: 1.7rem;
+    color: white;
+    font-family: roboto;
 }
 .main{
     display: none;
@@ -71,6 +82,10 @@ body{
     color: #fff;
     width: calc(600px / 9);
     height: 100%;
+}
+.number-selected{
+    background: white;
+    color: black !important;
 }
 
 /* .R1{background: rgb(255, 255, 255);}
@@ -120,10 +135,14 @@ body{
 }
 
 
+.btn-start-game{
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
 @media screen and (max-width : 600px) {
-    .header{
-        width: 400px;
-    }
     .main{
         width: 400px;
         height: 400px;
@@ -136,9 +155,6 @@ body{
     }
 }
 @media screen and (max-width : 480px) {
-    .header{
-        width: 300px;
-    }
     .main{
         width: 300px;
         height: 300px;
@@ -152,9 +168,6 @@ body{
     .numbers div{font-size: 2em;}
 }
 @media screen and (max-width : 280px) {
-    .header{
-        width: 250px;
-    }
     .cronometro{
         font-size: 1.4em;
     }

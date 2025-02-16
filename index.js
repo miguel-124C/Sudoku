@@ -72,6 +72,7 @@ const mostrarTablero=()=>{
                     }else if(numberSelect != null){
                         numErrors++;
                         errors.textContent = numErrors;
+                        removeNumSelected();
                     }
                 }
                 lightRowColumRegionNumber(i,j,parseInt(square.textContent));
@@ -84,10 +85,39 @@ const mostrarTablero=()=>{
     for (let i = 1; i < 10; i++) {
         const number = document.createElement("div");
         number.textContent = i;
-        number.addEventListener("click",()=>numberSelect = number.textContent);
+
+        number.addEventListener("click",()=>{
+            if (numberSelect == number.textContent){
+                console.log('Es igual')
+                numberSelect = null;
+                number.classList.remove('number-selected');
+                return;
+            }
+
+            numberSelect = number.textContent;
+            number.classList.toggle( 'number-selected' );
+            removeClassNumSelected();
+        });
         numbers.appendChild(number);
     }
 }
+
+function removeNumSelected(){
+    numbers.childNodes.forEach( n =>{
+        if (n.textContent == numberSelect) {
+            numberSelect = null;
+            n.classList.remove('number-selected');
+        }
+    });
+}
+function removeClassNumSelected(){
+    numbers.childNodes.forEach( n =>{
+        if (n.textContent !== numberSelect) {
+            n.classList.remove('number-selected');
+        }
+    });
+}
+
 const armarMatrizResultado=()=>{
     for (let i = 0; i < 9; i++) {
         let contador = 0;
